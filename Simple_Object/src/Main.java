@@ -1,20 +1,23 @@
 import javax.swing.*;
 
 class Greeting {
-    int first;
-    int second;
+    private int first;
+    private int second;
 
-    void set(int primo, int secondo) {
-        first = primo;
-        second = secondo;
+    void setFirst(int value) {
+        first = value;
     }
 
-    int sum(int a, int b) {
-        return a + b;
+    void setSecond(int value) {
+        second = value;
     }
 
-    int multiply(int a, int b) {
-        return a * b;
+    public int sum() {
+        return first + second;
+    }
+
+    public int multiply() {
+        return first * second;
     }
 }
 
@@ -30,12 +33,13 @@ public class Main {
         input = JOptionPane.showInputDialog(null, "Enter second value");
         values[1] = Integer.parseInt(input);
 
-        greeting.set(values[0], values[1]);
+        greeting.setFirst(values[0]);
+        greeting.setSecond(values[1]);
 
-        message = String.format("Sum of values is %s", greeting.sum(values[0], values[1]));
+        message = String.format("Sum of values is %s", greeting.sum());
         JOptionPane.showMessageDialog(null, message);
 
-        message = String.format("Multiply of values is %s", greeting.multiply(values[0], values[1]));
+        message = String.format("Multiply of values is %s", greeting.multiply());
         JOptionPane.showMessageDialog(null, message);
     }
 }
